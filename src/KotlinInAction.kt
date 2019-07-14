@@ -1,7 +1,4 @@
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion
-import java.lang.IllegalArgumentException
 import java.util.*
-import java.util.concurrent.atomic.AtomicInteger
 
 fun main(args: Array<String>): Unit {
     main_box()
@@ -89,12 +86,22 @@ fun parsePath(path: String) {
 class User(val id: Int, val name: String, val address: String)
 
 fun saveUser(user: User){
-    if (user.name.isEmpty()){
-        throw IllegalArgumentException("Can't save user ${user.id}: empty Name")
+    // 3.11
+//    if (user.name.isEmpty()){
+//        throw IllegalArgumentException("Can't save user ${user.id}: empty Name")
+//    }
+//    if (user.address.isEmpty()){
+//        throw IllegalArgumentException("Can't save user ${user.id}: empty Address")
+//    }
+
+    // 3.12
+    fun validate(user: User, value: String, fieldName: String){
+        if (value.isEmpty()){
+            throw IllegalArgumentException("Can't save user ${user.id}: empty $fieldName")
+        }
     }
-    if (user.address.isEmpty()){
-        throw IllegalArgumentException("Can't save user ${user.id}: empty Address")
-    }
+    validate(user, user.name, "Name")
+    validate(user, user.address, "Address")
     // Save user to the database
     println("Store user with id: ${user.id} in database")
 }
