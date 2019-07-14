@@ -95,13 +95,27 @@ fun saveUser(user: User){
 //    }
 
     // 3.12
-    fun validate(user: User, value: String, fieldName: String){
-        if (value.isEmpty()){
-            throw IllegalArgumentException("Can't save user ${user.id}: empty $fieldName")
-        }
-    }
-    validate(user, user.name, "Name")
-    validate(user, user.address, "Address")
+//    fun validate(user: User, value: String, fieldName: String){
+//        if (value.isEmpty()){
+//            throw IllegalArgumentException("Can't save user ${user.id}: empty $fieldName")
+//        }
+//    }
+//    validate(user, user.name, "Name")
+//    validate(user, user.address, "Address")
+
+    // 3.14
+    user.validateBeforeSave()
+
     // Save user to the database
     println("Store user with id: ${user.id} in database")
+}
+// 3.14
+fun User.validateBeforeSave(){
+    fun validate(value: String, fieldName: String){
+        if (value.isEmpty()){
+            throw IllegalArgumentException("Can't save user $id}: empty $fieldName")
+        }
+    }
+    validate(name, "Name")
+    validate(address, "Address")
 }
