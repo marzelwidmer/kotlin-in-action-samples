@@ -17,8 +17,8 @@ fun main(): Unit {
     Button().setFocus(true)
     Button().setFocus(false)
 
-    println("Num is ${eval(Num(10))}")
-    println("Sum is : ${eval(Sum(left = Num(10), right = Num(10)))}")
+    println("Num is ${eval(Expr.Num(10))}")
+    println("Sum is : ${eval(Expr.Sum(left = Expr.Num(10), right = Expr.Num(10)))}")
 }
 
 interface Clickable {
@@ -75,16 +75,26 @@ class Outer {
 }
 
 
-interface Expr
-class Num(val value: Int) : Expr
-class Sum(val left: Expr, val right: Expr) : Expr
-fun eval(e: Expr): Int =
-    when (e) {
-        is Num -> e.value
-        is Sum -> eval(e.right) + eval(e.left)
-        else -> throw IllegalArgumentException("Unknown expression")
-    }
+//interface Expr
+//class Num(val value: Int) : Expr
+//class Sum(val left: Expr, val right: Expr) : Expr
+//fun eval(e: Expr): Int =
+//    when (e) {
+//        is Num -> e.value
+//        is Sum -> eval(e.right) + eval(e.left)
+//        else -> throw IllegalArgumentException("Unknown expression")
+//    }
 
+// SEALED Class you don`t need the else branch...
+sealed class Expr{
+    class Num(val value: Int) : Expr()
+    class Sum(val left: Expr, val right: Expr) : Expr()
+}
+fun eval(e: Expr) : Int =
+    when(e){
+        is Expr.Num -> e.value
+        is Expr.Sum -> eval(e.right) + eval(e.left)
+    }
 
 
 
