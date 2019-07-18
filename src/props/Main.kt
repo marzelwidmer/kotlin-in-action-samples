@@ -9,7 +9,11 @@ fun main() {
 interface User {
     val nickname: String
 }
-
+interface MyUser{
+    val email: String
+    val nickname : String
+        get() = email.substringBefore('@')
+}
 class PrivateUser(override val nickname: String) : User
 
 class SubscribingUser(val email: String) : User {
@@ -23,3 +27,4 @@ class FacebookUser(val accountId: Int) : User {
     private fun getFacebookName(accountId: Int): String = "Connect to FB ..."
 
 }
+

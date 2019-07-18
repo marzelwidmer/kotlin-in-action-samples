@@ -60,7 +60,7 @@ class Button : Clickable, Focusable {
 
 open class RichButton : Clickable {
     fun disable() = println("I'm disabled!")
-    open fun animate() = println("I animalte something.")
+    open fun animate() = println("I animate something.")
     override fun click() {
         println("I was clicked")
     }
@@ -77,7 +77,7 @@ open class RichButton : Clickable {
 
 interface State : Serializable
 interface View {
-    fun getCurrectState(): State
+    fun getCurrentState(): State
     fun restoreState(state: State) {
         println("Restore classesObjectsInterfaces.State..")
     }
