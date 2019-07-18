@@ -14,7 +14,7 @@ fun main(args: Array<String>): Unit {
 
     // 3.6
     saveUser(User(id = 1, name = "John", address = "Wallstreet"))
-    saveUser(User(id=2, name =  "", address = ""))
+    saveUser(User(id = 2, name = "", address = ""))
 }
 
 fun main_box() {
@@ -95,7 +95,7 @@ fun saveUser(user: User){
 //    }
 
     // 3.12
-//    fun validate(user: User, value: String, fieldName: String){
+//    fun validate(user: classesObjectsInterfaces.User, value: String, fieldName: String){
 //        if (value.isEmpty()){
 //            throw IllegalArgumentException("Can't save user ${user.id}: empty $fieldName")
 //        }
