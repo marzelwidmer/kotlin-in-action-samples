@@ -8,6 +8,10 @@ fun main() {
 
     val processed = hashSetOf(Client(name = "Alice", postalCode = 342562))
     println("Contains ?  ${processed.contains(Client(name = "Alice", postalCode = 342562))}")
+
+    // Copy
+    val bob = Client(name = "Bob", postalCode = 973291)
+    println(bob.copy(postalCode = 123))
 }
 
 data class Client(val name: String, val postalCode: Int){
