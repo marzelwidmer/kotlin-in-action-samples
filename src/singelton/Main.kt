@@ -4,10 +4,12 @@ import java.io.File
 
 fun main() {
 
-    val employees = arrayListOf<Person>(
-        Person(name = "Bob", salery = 1000),
-        Person(name = "Alice", salery = 1000), Person(name = "John", salery = 1000)
+    val employees = listOf(
+        Person(name = "Bob", salery = 5000),
+        Person(name = "Alice", salery = 500), Person(name = "John", salery = 50)
     )
+    println("Sorted by names : ${employees.sortedWith(Person.NameComparator)}")
+    println("Sorted by salery ${employees.sortedWith(Person.SaleryComparator)}")
 
     Payroll.allEmployees.addAll(employees)
     Payroll.calculateSalery()
@@ -35,7 +37,19 @@ object Payroll {
     }
 }
 
-class Person(val name: String, val salery: Int)
+data class Person(val name: String, val salery: Int = 0){
+    object NameComparator : Comparator<Person>{
+        override fun compare(p1: Person, p2: Person): Int = p1.name.compareTo(p2.name)
+    }
+
+    object SaleryComparator : Comparator<Person> {
+        override fun compare(p1: Person, p2: Person): Int = p1.salery.compareTo(p2.salery)
+
+    }
+}
+
+
+
 
 // 4.23 Implementing Comparator with an object
 object CaseInsensitiveFileComparator : Comparator<File> {
