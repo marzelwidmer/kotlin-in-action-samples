@@ -25,7 +25,7 @@ class SubscribingUser(val email: String) : User {
 class FacebookUser(val accountId: Int) : User {
     override val nickname: String = getFacebookName(accountId)
 
-    private fun getFacebookName(accountId: Int): String = "Connect to FB ..."
+    private fun getFacebookName(accountId: Int): String = "Connect to FB ... with $accountId"
 
 }
 

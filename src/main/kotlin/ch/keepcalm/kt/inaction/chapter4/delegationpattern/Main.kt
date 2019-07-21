@@ -1,4 +1,4 @@
-package ch.keepcalm.kt.inaction.chapter4.delegation
+package ch.keepcalm.kt.inaction.chapter4.delegationpattern
 
 fun main() {
     val cset = CountingSet<Int>()
@@ -8,7 +8,7 @@ fun main() {
 
 // Delegation Pattern 'by'
 class DelegatingCollection<T>(
-    innerList: Collection<T> = ArrayList<T>()
+        innerList: Collection<T> = ArrayList<T>()
 ) : Collection<T> by innerList {}
 
 class CountingSet<T>(val innerSet: MutableCollection<T> = HashSet<T>()) : MutableCollection<T> by innerSet {

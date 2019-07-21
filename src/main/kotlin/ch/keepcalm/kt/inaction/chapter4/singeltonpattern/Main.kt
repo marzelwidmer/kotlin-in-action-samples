@@ -1,4 +1,4 @@
-package ch.keepcalm.kt.inaction.chapter4.singelton
+package ch.keepcalm.kt.inaction.chapter4.singeltonpattern
 
 import java.io.File
 

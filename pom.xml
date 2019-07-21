@@ -6,90 +6,25 @@
 
 	<groupId>ch.keepcalm.kt</groupId>
 	<artifactId>kotlin-in-action-samples</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<description>Kotlin In Action Samples</description>
 
 	<properties>
-		<kotlin.version>1.3.21</kotlin.version>
+		<kotlin.version>1.3.41</kotlin.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.jetbrains.kotlin</groupId>
-			<artifactId>kotlin-stdlib-jdk8</artifactId>
+			<artifactId>kotlin-stdlib</artifactId>
 			<version>${kotlin.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.jetbrains.kotlin</groupId>
-			<artifactId>kotlin-test</artifactId>
-			<version>${kotlin.version}</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<sourceDirectory>src/main/kotlin</sourceDirectory>
-		<plugins>
-			<plugin>
-				<artifactId>kotlin-maven-plugin</artifactId>
-				<configuration>
-					<jvmTarget>1.8</jvmTarget>
-				</configuration>
-				<groupId>org.jetbrains.kotlin</groupId>
-				<version>${kotlin.version}</version>
-
-				<executions>
-					<execution>
-						<id>compile</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-
-					<execution>
-						<id>test-compile</id>
-						<phase>test-compile</phase>
-						<goals>
-							<goal>test-compile</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
+		<sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+		<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>
 	</build>
 
-	<profiles>
-		<!-- release -->
-		<profile>
-			<id>azure-nexus</id>
-			<activation>
-				<activeByDefault>false</activeByDefault>
-				<os>
-					<family>mac</family>
-				</os>
-			</activation>
-
-			<!-- Distribution -->
-			<distributionManagement>
-				<repository>
-					<id>azure-nexus</id>
-					<url>http://nexusvm.cloudapp.net/artifactory/libs-release-local</url>
-				</repository>
-				<snapshotRepository>
-					<id>azure-nexus</id>
-					<uniqueVersion>false</uniqueVersion>
-					<url>http://nexusvm.cloudapp.net/artifactory/libs-snapshot-local</url>
-				</snapshotRepository>
-			</distributionManagement>
-			<repositories>
-				<repository>
-					<id>azure-nexus</id>
-					<url>http://nexusvm.cloudapp.net/artifactory/maven-public</url>
-				</repository>
-			</repositories>
-		</profile>
-	</profiles>
 </project>
