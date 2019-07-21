@@ -1,4 +1,4 @@
-package delegation
+package ch.keepcalm.kt.inaction.chapter4.delegation
 
 fun main() {
     val cset = CountingSet<Int>()

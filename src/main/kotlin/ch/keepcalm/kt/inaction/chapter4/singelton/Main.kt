@@ -1,4 +1,4 @@
-package singelton
+package ch.keepcalm.kt.inaction.chapter4.singelton
 
 import java.io.File
 
@@ -14,12 +14,6 @@ fun main() {
     Payroll.allEmployees.addAll(employees)
     Payroll.calculateSalery()
 
-
-    // 4.23
-    println(CaseInsensitiveFileComparator.compare(File("/User"), File("/user")))
-
-    val files = listOf(File("/C"), File("/b"), File("/Z"), File("/a"))
-    println(files.sortedWith(CaseInsensitiveFileComparator))
 }
 
 
@@ -45,15 +39,5 @@ data class Person(val name: String, val salery: Int = 0){
     object SaleryComparator : Comparator<Person> {
         override fun compare(p1: Person, p2: Person): Int = p1.salery.compareTo(p2.salery)
 
-    }
-}
-
-
-
-
-// 4.23 Implementing Comparator with an object
-object CaseInsensitiveFileComparator : Comparator<File> {
-    override fun compare(file1: File, file2: File): Int {
-        return file1.path.compareTo(file2.path, ignoreCase = true)
     }
 }

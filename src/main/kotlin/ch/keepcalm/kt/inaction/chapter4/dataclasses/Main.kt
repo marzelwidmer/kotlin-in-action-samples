@@ -1,4 +1,4 @@
-package data
+package ch.keepcalm.kt.inaction.chapter4.dataclasses
 
 // 4.3
 fun main() {

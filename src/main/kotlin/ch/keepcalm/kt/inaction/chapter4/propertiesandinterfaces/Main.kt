@@ -1,4 +1,5 @@
-package props
+package ch.keepcalm.kt.inaction.chapter4.propertiesandinterfaces
+
 
 fun main() {
     println("PrivateUser : ${PrivateUser(nickname = "John").nickname}")

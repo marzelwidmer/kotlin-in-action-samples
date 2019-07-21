@@ -1,4 +1,4 @@
-package classesObjectsInterfaces
+package ch.keepcalm.kt.inaction.chapter4.classesobjectinterfaces
 
 import java.io.Serializable
 

@@ -1,4 +1,4 @@
-package props.accessorVisibility
+package ch.keepcalm.kt.inaction.chapter4.accessorandvisibility
 
 fun main() {
     val lengthCounter = LengthCounter()

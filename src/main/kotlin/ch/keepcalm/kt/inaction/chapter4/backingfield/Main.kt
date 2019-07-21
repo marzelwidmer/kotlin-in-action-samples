@@ -1,4 +1,4 @@
-package props.backingfield
+package ch.keepcalm.kt.inaction.chapter4.backingfield
 
 fun main() {
     val user = User(name = "Alice")
