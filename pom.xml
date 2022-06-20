@@ -11,7 +11,7 @@
 	<description>Kotlin In Action Samples</description>
 
 	<properties>
-		<kotlin.version>1.3.70</kotlin.version>
+		<kotlin.version>1.6.0</kotlin.version>
 	</properties>
 
 	<dependencies>
